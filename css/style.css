@@ -141,7 +141,7 @@
     .nav-link:hover,
     .active .na-link {
         color: #fff;
-        border-bottom: solid 2px #01e35c;
+        background: url(../images/line.jpg) left bottom repeat-x;
     }
     
     @keyframes example {
@@ -538,6 +538,10 @@
     }
     
     .current .fa-angle-up {
+        display: none;
+    }
+    
+    .dropdown .fa-angle-down {
         display: none;
     }
     
