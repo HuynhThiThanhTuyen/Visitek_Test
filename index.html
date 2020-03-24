@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="css/fontawesome.min.css" rel="stylesheet" type="text/css" />
     <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="css/aos.css" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -23,37 +25,15 @@
                         <div class="pcolor1"><i class="fa fa-gift fa-6" aria-hidden="true"></i> Giveaway</div>
                     </div>
                     <div class="mx-auto col-md-5">
-                        <div class="search" onclick="myFunctionSe()">
-                            <input placeholder="Search bar" class="txtKey" type="text" id="txtKey" onkeyup="myFunctionSearch">
-                            <div id="myUL" class="dropdown-content">
-                                <a href="#about">About</a>
-                                <a href="#base">Base</a>
-                                <a href="#blog">Blog</a>
-                                <a href="#contact">Contact</a>
-                                <a href="#custom">Custom</a>
-                                <a href="#support">Support</a>
-                                <a href="#tools">Tools</a>
-                            </div>
-                            <!-- <ul id="myUL">
-                                <li><a href="#">Adele</a></li>
-                                <li><a href="#">Agnes</a></li>
+                        <div class="search">
+                            <input placeholder="Search bar" class="txtKey" id="myInputS" onkeyup="myFunctionSearchS()">
 
-                                <li><a href="#">Billy</a></li>
-                                <li><a href="#">Bob</a></li>
-
-                                <li><a href="#">Calvin</a></li>
-                                <li><a href="#">Christina</a></li>
-                                <li><a href="#">Cindy</a></li>
-                            </ul> -->
                             <a> <i class="fa fa-search" aria-hidden="true"></i></a>
 
                         </div>
 
                     </div>
-                    <!-- <div class="mx-auto col-md-4">
 
-                        <div class="pcolor"> Mr. Frankin</div>
-                    </div> -->
                     <div class="mx-auto col-md-4">
                         <div class="user">
                             <a> <i class="fa fa-user" aria-hidden="true"></i></a>
@@ -88,309 +68,344 @@
     </header>
     <article>
         <div class="container">
-            <div class="left col-md-3">
-                <h2 class="title">Catalog
-                    <span>Games</span>
-                </h2>
-                <div class="dropdown">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="title">Catalog
+                        <span>Games</span>
+                    </h2>
+                </div>
+                <div class="left col-12 col-md-12 col-xl-3 d-none d-xl-block">
+                    <div class="dropdown">
 
-                    <button onclick="myFunction()" class="dropbtn">Order by: Popular</button>
-                    <div id="myDropdown" class="dropdown-content">
-                        <a href="#about">About</a>
-                        <a href="#base">Base</a>
-                        <a href="#blog">Blog</a>
-                        <a href="#contact">Contact</a>
-                        <a href="#custom">Custom</a>
-                        <a href="#support">Support</a>
-                        <a href="#tools">Tools</a>
+                        <button onclick="myFunction()" class="dropbtn">Order by: Popular <i class="fa fa-angle-up"
+                                aria-hidden="true"></i>
+                            <i class="fa fa-angle-down" aria-hidden="true"></i></button>
+                        <div id="myDropdown" class="dropdown-content">
+                            <a href="#about">About</a>
+                            <a href="#base">Base</a>
+                            <a href="#blog">Blog</a>
+                            <a href="#contact">Contact</a>
+                            <a href="#custom">Custom</a>
+                            <a href="#support">Support</a>
+                            <a href="#tools">Tools</a>
+                        </div>
                     </div>
-                </div>
-                <div class="searchbox">
-                    <h5>AVAILABILITY
-                        <i class="fa fa-angle-up" aria-hidden="true"></i>
-                        <i class="fa fa-angle-down" aria-hidden="true"></i>
-                    </h5>
+                    <div class="searchbox current">
+                        <h5>AVAILABILITY
+                            <i class="fa fa-angle-up" aria-hidden="true"></i>
+                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        </h5>
 
-                    <section class="todo">
-                        <ul class="todo-list">
-                            <li>
-                                Available
-                            </li>
-                            <li>
-                                Unavailable
-                            </li>
-                            <li>
-                                Pre-order
-                            </li>
-                        </ul>
-                    </section>
-                </div>
-                <div class="searchbox">
-                    <h5>PRICE
-                        <i class="fa fa-angle-up" aria-hidden="true"></i>
-                        <i class="fa fa-angle-down" aria-hidden="true"></i>
-                    </h5>
-                    <section class="todo">
-                        <ul class="todo-list">
-                            <li>
-                                $180
-                            </li>
-                        </ul>
-                    </section>
+                        <section class="todo">
+                            <ul class="todo-list">
+                                <li class="done">
+                                    Available
+                                </li>
+                                <li class="done">
+                                    Unavailable
+                                </li>
+                                <li>
+                                    Pre-order
+                                </li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div class="searchbox current">
+                        <h5>PRICE
+                            <i class="fa fa-angle-up" aria-hidden="true"></i>
+                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        </h5>
+                        <section class="todo">
+                            <div id="slider-range"></div>
+                            <p class="SReturn">
+                                <input type="text" id="amount" class="textPrice" readonly />
+                                <label for="amount"></label>
+                                <input type="text" class="textPrice" id="amountto" readonly />
+                            </p>
+                        </section>
+                    </div>
+
+                    <div class="searchbox current">
+                        <h5>GENRE
+                            <i class="fa fa-angle-up" aria-hidden="true"></i>
+                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        </h5>
+                        <section class="todo">
+                            <ul class="todo-list">
+                                <li>
+                                    Adventure
+                                </li>
+                                <li class="done">
+                                    Arcade
+                                </li>
+                                <li>
+                                    RPG
+                                </li>
+                                <li class="done">Action</li>
+                                <li class="done">Racing</li>
+                                <li>Strategy</li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div class="searchbox">
+                        <h5>DEVELOPER
+                            <i class="fa fa-angle-up" aria-hidden="true"></i>
+                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        </h5>
+                        <section class="todo">
+                            <ul class="todo-list">
+                                <li>
+                                    Available
+                                </li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div class="searchbox">
+                        <h5>PLATFORM
+                            <i class="fa fa-angle-up" aria-hidden="true"></i>
+                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        </h5>
+                        <section class="todo">
+                            <ul class="todo-list">
+                                <li>
+                                    Available
+                                </li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div class="searchbox">
+                        <h5>ACTIVATION
+                            <i class="fa fa-angle-up" aria-hidden="true"></i>
+                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        </h5>
+                        <section class="todo">
+                            <ul class="todo-list">
+                                <li>
+                                    Available
+                                </li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div class="searchbox">
+                        <h5>RELEASE DATE
+                            <i class="fa fa-angle-up" aria-hidden="true"></i>
+                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        </h5>
+                        <section class="todo">
+                            <ul class="todo-list">
+                                <li>
+                                    Available
+                                </li>
+                            </ul>
+                        </section>
+                    </div>
+
                 </div>
 
-                <div class="searchbox">
-                    <h5>GENRE
-                        <i class="fa fa-angle-up" aria-hidden="true"></i>
-                        <i class="fa fa-angle-down" aria-hidden="true"></i>
-                    </h5>
-                    <section class="todo">
-                        <ul class="todo-list">
-                            <li>
-                                Adventure
-                            </li>
-                            <li>
-                                Arcade
-                            </li>
-                            <li>
-                                RPG
-                            </li>
-                            <li>Action</li>
-                            <li>Racing</li>
-                            <li>Strategy</li>
-                        </ul>
-                    </section>
-                </div>
-                <div class="searchbox">
-                    <h5>DEVELOPER
-                        <i class="fa fa-angle-up" aria-hidden="true"></i>
-                        <i class="fa fa-angle-down" aria-hidden="true"></i>
-                    </h5>
-                    <section class="todo">
-                        <ul class="todo-list">
-                            <li>
-                                Available
-                            </li>
-                        </ul>
-                    </section>
-                </div>
-                <div class="searchbox">
-                    <h5>PLATFORM
-                        <i class="fa fa-angle-up" aria-hidden="true"></i>
-                        <i class="fa fa-angle-down" aria-hidden="true"></i>
-                    </h5>
-                    <section class="todo">
-                        <ul class="todo-list">
-                            <li>
-                                Available
-                            </li>
-                        </ul>
-                    </section>
-                </div>
-                <div class="searchbox">
-                    <h5>ACTIVATION
-                        <i class="fa fa-angle-up" aria-hidden="true"></i>
-                        <i class="fa fa-angle-down" aria-hidden="true"></i>
-                    </h5>
-                    <section class="todo">
-                        <ul class="todo-list">
-                            <li>
-                                Available
-                            </li>
-                        </ul>
-                    </section>
-                </div>
-                <div class="searchbox">
-                    <h5>RELEASE DATE
-                        <i class="fa fa-angle-up" aria-hidden="true"></i>
-                        <i class="fa fa-angle-down" aria-hidden="true"></i>
-                    </h5>
-                    <section class="todo">
-                        <ul class="todo-list">
-                            <li>
-                                Available
-                            </li>
-                        </ul>
-                    </section>
-                </div>
-
-            </div>
-            <div class="container">
-                <div class="left col-md-9">
+                <div class="left col-12 col-md-12 col-xl-9">
                     <div class="search1">
-                        <input placeholder="Search bar" class="txtSearch">
+                        <input placeholder="Search bar" id="myInput" class="txtSearch" onkeyup="myFunctionSearch()">
                         <a> <i class="fa fa-search" aria-hidden="true"></i></a>
                     </div>
-                    <div class="left col-md-4">
-                        <div class="list-item">
-                            <div class="hinh">
-                                <div class="icon">
-                                    <a class="green">
-                                        <i class="fa fa-windows" aria-hidden="true"></i>
-                                    </a>
-                                    <a class="blue"> <i class="fa fa-search" aria-hidden="true"></i></a>
-                                    <a class="gray"> <i class="fa fa-search" aria-hidden="true"></i></a>
+                    <div class="row">
+                        <div class="left col-12 col-md-6 d-show d-xl-none">
+                            <div class="dropdown">
+                                <button onclick="myFunction()" class="dropbtn">
+                                    Order by: <span>Popular</span> <i class="fa fa-angle-up" aria-hidden="true"></i>
+                                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                </button>
+                                <div id="myDropdown" class="dropdown-content">
+                                    <a href="#">About</a>
+                                    <a href="#">Base</a>
+                                    <a href="#">Blog</a>
+                                    <a href="#">Contact</a>
+                                    <a href="#">Custom</a>
+                                    <a href="#">Support</a>
+                                    <a href="#">Tools</a>
                                 </div>
-                                <img src="images/hinh1.jpg" alt="Max Payne 3" title="Max Payne 3">
-                                <!-- //title để hover lên hình sẽ hiện chữ -->
-                                <h3><a href="#"> Max Payne3</a></h3>
                             </div>
-                            <p>Availability: <span class="cgreen">Available</span></p>
-                            <p>Product code: <span>002144</span></p>
-                            <div class="price"><span>19.90</span><sup>$</sup> <a href="#">Buy</a></div>
                         </div>
-                    </div>
-                    <div class="img">
-                        <div class="left col-md-4 ">
-                            <div class="list-item">
-                                <div class="hinh">
-                                    <div class="icon">
-                                        <a class="green">
-                                            <i class="fa fa-windows" aria-hidden="true"></i>
-                                        </a>
-                                        <a class="blue"> <i class="fa fa-search" aria-hidden="true"></i></a>
-                                        <a class="gray"> <i class="fa fa-search" aria-hidden="true"></i></a>
-                                    </div> <img src="images/hinh1.jpg" alt="The Crew" title="The Crew">
-                                    <h3><a href="#"> The Crew</a></h3>
+                        <div class="left col-12 col-md-6 d-show d-xl-none">
+                            <div class="searchbox">
+                                <h5>
+                                    Filter:
+                                    <i class="fa fa-angle-up" aria-hidden="true"></i>
+                                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                </h5>
+                                <section class="todo">
+                                    <ul class="todo-list">
+                                        <li>
+                                            Adventure
+                                        </li>
+                                        <li class="done">
+                                            Arcade
+                                        </li>
+                                    </ul>
+                                </section>
+                            </div>
+                        </div>
+                        <ul id="myUL">
+                            <li class="left col-12 col-md-6 col-xl-4">
+                                <div class="list-item">
+                                    <div class="hinh">
+                                        <div class="icon">
+                                            <a class="green" href="#"><i class="fa fa-chrome" aria-hidden="true"></i>
+                                            </a>
+                                            <a class="blue" href="#"> <i class="fa fa-windows" aria-hidden="true"></i></a>
+                                            <a class="gray" href="#"> <i class="fa fa-ship" aria-hidden="true"></i></a>
+                                        </div>
+                                        <img src="images/max.jpg" alt="Max Payne 3" title="Max Payne 3">
+                                        <!-- //title để hover lên hình sẽ hiện chữ -->
+                                        <h3><a href="#" class="textTitle"> Max Payne3</a></h3>
+                                    </div>
+                                    <p>Availability: <span class="cgreen">Available</span></p>
+                                    <p>Product code: <span>002144</span></p>
+                                    <div class="price"><span>19.90</span><sup>$</sup> <a href="#">Buy</a></div>
                                 </div>
-                                <p>Availability: <span class="cgreen">Available</span></p>
-                                <p>Product code: <span>001201</span></p>
-                                <div class="price"><span>29.90</span><sup>$</sup> <a href="#">Buy</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="left col-md-4 ">
-                        <div class="list-item">
-                            <div class="hinh">
-                                <div class="icon">
-                                    <a class="green">
-                                        <i class="fa fa-windows" aria-hidden="true"></i>
-                                    </a>
-                                    <a class="blue"> <i class="fa fa-search" aria-hidden="true"></i></a>
-                                    <a class="gray"> <i class="fa fa-search" aria-hidden="true"></i></a>
-                                </div><img src="images/hinh1.jpg" alt="Call of Duty" title="Call of Duty">
-                                <h3><a href="#"> Call of Duty</a></h3>
-                            </div>
-                            <p>Availability: <span class="cgreen">Unavailable</span></p>
-                            <p>Product code: <span>001201</span></p>
-                            <div class="price"><span>29.90</span><sup>$</sup> <a href="#">Buy</a></div>
-                        </div>
-                    </div>
-                    <div class="left col-md-4 ">
-                        <div class="list-item">
-                            <div class="hinh">
-                                <div class="icon">
-                                    <a class="green">
-                                        <i class="fa fa-windows" aria-hidden="true"></i>
-                                    </a>
-                                    <a class="blue"> <i class="fa fa-search" aria-hidden="true"></i></a>
-                                    <a class="gray"> <i class="fa fa-search" aria-hidden="true"></i></a>
-                                </div> <img src="images/hinh1.jpg">
-                                <h3><a href="#"> Need For Speed</a></h3>
-                            </div>
-                            <p>Availability: <span class="cgreen">Available</span></p>
-                            <p>Product code: <span>001201</span></p>
-                            <div class="price"><span>29.90</span><sup>$</sup> <a href="#">Buy</a></div>
-                        </div>
-                    </div>
-                    <div class="left col-md-4 ">
-                        <div class="list-item">
-                            <div class="hinh">
-                                <div class="icon">
-                                    <a class="green">
-                                        <i class="fa fa-windows" aria-hidden="true"></i>
-                                    </a>
-                                    <a class="blue"> <i class="fa fa-search" aria-hidden="true"></i></a>
-                                    <a class="gray"> <i class="fa fa-search" aria-hidden="true"></i></a>
-                                </div><img src="images/hinh1.jpg">
-                                <h3><a href="#">Project Cars</a></h3>
-                            </div>
-                            <p>Availability: <span class="cgreen">Available</span></p>
-                            <p>Product code: <span>001201</span></p>
-                            <div class="price"><span>29.90</span><sup>$</sup> <a href="#">Buy</a></div>
-                        </div>
-                    </div>
-                    <div class="left col-md-4 ">
-                        <div class="list-item">
-                            <div class="hinh">
-                                <div class="icon">
-                                    <a class="green">
-                                        <i class="fa fa-windows" aria-hidden="true"></i>
-                                    </a>
-                                    <a class="blue"> <i class="fa fa-search" aria-hidden="true"></i></a>
-                                    <a class="gray"> <i class="fa fa-search" aria-hidden="true"></i></a>
-                                </div> <img src="images/hinh1.jpg">
-                                <h3><a href="#"> The Division</a></h3>
-                            </div>
-                            <p>Availability: <span class="cgreen">Available</span></p>
-                            <p>Product code: <span>001201</span></p>
-                            <div class="price"><span>29.90</span><sup>$</sup> <a href="#">Buy</a></div>
-                        </div>
-                    </div>
-                    <div class="left col-md-4 ">
-                        <div class="list-item">
-                            <div class="hinh">
-                                <div class="icon">
-                                    <a class="green">
-                                        <i class="fa fa-windows" aria-hidden="true"></i>
-                                    </a>
-                                    <a class="blue"> <i class="fa fa-search" aria-hidden="true"></i></a>
-                                    <a class="gray"> <i class="fa fa-search" aria-hidden="true"></i></a>
-                                </div> <img src="images/hinh1.jpg">
-                                <h3><a href="#"> Far Cry 5</a></h3>
-                            </div>
-                            <p>Availability: <span class="cgreen">Available</span></p>
-                            <p>Product code: <span>001201</span></p>
-                            <div class="price"><span>29.90</span><sup>$</sup> <a href="#">Buy</a></div>
-                        </div>
-                    </div>
-                    <div class="left col-md-4 ">
-                        <div class="list-item">
-                            <div class="hinh">
-                                <div class="icon">
-                                    <a class="green">
-                                        <i class="fa fa-windows" aria-hidden="true"></i>
-                                    </a>
-                                    <a class="blue"> <i class="fa fa-search" aria-hidden="true"></i></a>
-                                    <a class="gray"> <i class="fa fa-search" aria-hidden="true"></i></a>
-                                </div> <img src="images/hinh1.jpg">
-                                <h3><a href="#"> Andromeda</a></h3>
-                            </div>
-                            <p>Availability: <span class="cgreen">Available</span></p>
-                            <p>Product code: <span>001201</span></p>
-                            <div class="price"><span>29.90</span><sup>$</sup> <a href="#">Buy</a></div>
-                        </div>
-                    </div>
-                    <div class="left col-md-4 ">
-                        <div class="list-item">
-                            <div class="hinh">
-                                <div class="icon">
-                                    <a class="green">
-                                        <i class="fa fa-windows" aria-hidden="true"></i>
-                                    </a>
-                                    <a class="blue"> <i class="fa fa-search" aria-hidden="true"></i></a>
-                                    <a class="gray"> <i class="fa fa-search" aria-hidden="true"></i></a>
-                                </div><img src="images/hinh1.jpg">
-                                <h3><a href="#"> Odyssey</a></h3>
-                            </div>
-                            <p>Availability: <span class="cgreen">Available</span></p>
-                            <p>Product code: <span>001201</span></p>
-                            <div class="price"><span>29.90</span><sup>$</sup> <a href="#">Buy</a></div>
-                        </div>
+                            </li>
+
+                            <li class="left col-12 col-md-6 col-xl-4">
+                                <div class="list-item">
+                                    <div class="hinh">
+                                        <div class="icon">
+                                            <a class="green" href="#"><i class="fa fa-chrome" aria-hidden="true"></i>
+                                            </a>
+                                            <a class="blue" href="#"> <i class="fa fa-windows" aria-hidden="true"></i></a>
+                                            <a class="gray" href="#"> <i class="fa fa-ship" aria-hidden="true"></i></a>
+                                        </div> <img src="images/p2.jpg" alt="The Crew" title="The Crew">
+                                        <h3><a href="#" class="textTitle"> The Crew</a></h3>
+                                    </div>
+                                    <p>Availability: <span class="cgreen">Available</span></p>
+                                    <p>Product code: <span>001201</span></p>
+                                    <div class="price"><span>29.90</span><sup>$</sup> <a href="#">Buy</a></div>
+                                </div>
+                            </li>
+
+                            <li class="left col-12 col-md-6 col-xl-4">
+                                <div class="list-item">
+                                    <div class="hinh">
+                                        <div class="icon">
+                                            <a class="green" href="#"><i class="fa fa-chrome" aria-hidden="true"></i>
+                                            </a>
+                                            <a class="blue" href="#"> <i class="fa fa-windows" aria-hidden="true"></i></a>
+                                            <a class="gray" href="#"> <i class="fa fa-ship" aria-hidden="true"></i></a>
+                                        </div><img src="images/a1.jpg" alt="Call of Duty" title="Call of Duty">
+                                        <h3><a href="#" class="textTitle"> Call of Duty</a></h3>
+                                    </div>
+                                    <p>Availability: <span class="cgreen">Unavailable</span></p>
+                                    <p>Product code: <span>001201</span></p>
+                                    <div class="price"><span>29.90</span><sup>$</sup> <a href="#">Buy</a></div>
+                                </div>
+                            </li>
+                            <li class="left col-12 col-md-6 col-xl-4" data-aos="fade-up-left">
+                                <div class="list-item">
+                                    <div class="hinh">
+                                        <div class="icon">
+                                            <a class="green" href="#"><i class="fa fa-chrome" aria-hidden="true"></i>
+                                            </a>
+                                            <a class="blue" href="#"> <i class="fa fa-windows" aria-hidden="true"></i></a>
+                                            <a class="gray" href="#"> <i class="fa fa-ship" aria-hidden="true"></i></a>
+                                        </div> <img src="images/p1.jpg">
+                                        <h3><a href="#" class="textTitle"> Need For Speed</a></h3>
+                                    </div>
+                                    <p>Availability: <span class="cgreen">Available</span></p>
+                                    <p>Product code: <span>001201</span></p>
+                                    <div class="price"><span>29.90</span><sup>$</sup> <a href="#">Buy</a></div>
+                                </div>
+                            </li>
+                            <li class="left col-12 col-md-6 col-xl-4" data-aos="fade-up-left">
+                                <div class="list-item">
+                                    <div class="hinh">
+                                        <div class="icon">
+                                            <a class="green" href="#"><i class="fa fa-chrome" aria-hidden="true"></i>
+                                            </a>
+                                            <a class="blue" href="#"> <i class="fa fa-windows" aria-hidden="true"></i></a>
+                                            <a class="gray" href="#"> <i class="fa fa-ship" aria-hidden="true"></i></a>
+                                        </div><img src="images/p2.jpg">
+                                        <h3><a href="#" class="textTitle">Project Cars</a></h3>
+                                    </div>
+                                    <p>Availability: <span class="cgreen">Available</span></p>
+                                    <p>Product code: <span>001201</span></p>
+                                    <div class="price"><span>29.90</span><sup>$</sup> <a href="#">Buy</a></div>
+                                </div>
+                            </li>
+                            <li class="left col-12 col-md-6 col-xl-4" data-aos="fade-up-left">
+                                <div class="list-item">
+                                    <div class="hinh">
+                                        <div class="icon">
+                                            <a class="green" href="#"><i class="fa fa-chrome" aria-hidden="true"></i>
+                                            </a> </a>
+                                            <a class="blue" href="#"> <i class="fa fa-windows" aria-hidden="true"></i></a>
+                                            <a class="gray" href="#"> <i class="fa fa-ship" aria-hidden="true"></i></a>
+                                        </div> <img src="images/p1.jpg">
+                                        <h3><a href="#" class="textTitle"> The Division</a></h3>
+                                    </div>
+                                    <p>Availability: <span class="cgreen">Available</span></p>
+                                    <p>Product code: <span>001201</span></p>
+                                    <div class="price"><span>29.90</span><sup>$</sup> <a href="#">Buy</a></div>
+                                </div>
+                            </li>
+                            <li class="left col-12 col-md-6 col-xl-4" data-aos="fade-up-left">
+                                <div class="list-item">
+                                    <div class="hinh">
+                                        <div class="icon">
+                                            <a class="green" href="#"><i class="fa fa-chrome" aria-hidden="true"></i>
+                                            </a> </a>
+                                            <a class="blue" href="#"> <i class="fa fa-windows" aria-hidden="true"></i></a>
+                                            <a class="gray" href="#"> <i class="fa fa-ship" aria-hidden="true"></i></a>
+                                        </div> <img src="images/a1.jpg">
+                                        <h3><a href="#" class="textTitle"> Far Cry 5</a></h3>
+                                    </div>
+                                    <p>Availability: <span class="cgreen">Available</span></p>
+                                    <p>Product code: <span>001201</span></p>
+                                    <div class="price"><span>29.90</span><sup>$</sup> <a href="#">Buy</a></div>
+                                </div>
+                            </li>
+                            <li class="left col-12 col-md-6 col-xl-4" data-aos="fade-up-left">
+                                <div class="list-item">
+                                    <div class="hinh">
+                                        <div class="icon">
+                                            <a class="green" href="#"><i class="fa fa-chrome" aria-hidden="true"></i>
+                                            </a> </a>
+                                            <a class="blue" href="#"> <i class="fa fa-windows" aria-hidden="true"></i></a>
+                                            <a class="gray" href="#"> <i class="fa fa-ship" aria-hidden="true"></i></a>
+                                        </div> <img src="images/p1.jpg">
+                                        <h3><a href="#" class="textTitle"> Andromeda</a></h3>
+                                    </div>
+                                    <p>Availability: <span class="cgreen">Available</span></p>
+                                    <p>Product code: <span>001201</span></p>
+                                    <div class="price"><span>29.90</span><sup>$</sup> <a href="#">Buy</a></div>
+                                </div>
+                            </li>
+                            <li class="left col-12 col-md-6 col-xl-4" data-aos="fade-up-left">
+                                <div class="list-item">
+                                    <div class="hinh">
+                                        <div class="icon">
+                                            <a class="green" href="#"><i class="fa fa-chrome" aria-hidden="true"></i>
+                                            </a> </a>
+                                            <a class="blue" href="#"> <i class="fa fa-windows" aria-hidden="true"></i></a>
+                                            <a class="gray" href="#"> <i class="fa fa-ship" aria-hidden="true"></i></a>
+                                        </div><img src="images/p2.jpg">
+                                        <h3><a href="#" class="textTitle"> Odyssey</a></h3>
+                                    </div>
+                                    <p>Availability: <span class="cgreen">Available</span></p>
+                                    <p>Product code: <span>001201</span></p>
+                                    <div class="price"><span>29.90</span><sup>$</sup> <a href="#">Buy</a></div>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-
             </div>
         </div>
-
 
     </article>
     <footer>
 
         <div class="container">
             <div class="row">
-                <div class="left col-md-7">
-                    <div class="topfooter">
+                <div class="left col-md-8">
+                    <div class="col-md-12 topfooter">
                         <img src="images/logo.jpg">
                         <ul class="iicon">
                             <li>
@@ -402,20 +417,20 @@
                             <li>
                                 <i class="fa fa-youtube-play" aria-hidden="true"></i>
                             </li>
-                            <a>
+                            <li>
                                 © 2019 BookHouse. All Rights Reserved
-                            </a>
+                            </li>
                         </ul>
 
                     </div>
-                    <p class="support">Support</p>
-                </div>
-                <div class="left col-md-7">
-                    <div class="language">
-                        <a><img src="images/en.jpg">English <i class="fa fa-angle-up" aria-hidden="true"></i></a>
+                    <!-- <p class="support">Support</p> -->
 
-                        <section class="todo">
-                            <ul class="todo-list">
+                    <div class="left col-md-12 f2">
+                        <a href="#" class="support">Support</a>
+                        <div class="language">
+                            <div class="return"><span>
+                                    <a><img src="images/en.jpg">English</a></span> <i class="fa fa-angle-up" aria-hidden="true"></i></div>
+                            <ul class="list-lang">
                                 <li>
                                     <a href="#"><img src="images/vi.jpg"></a>
                                     Vietnamemese
@@ -425,19 +440,24 @@
                                     English
                                 </li>
                             </ul>
-                        </section>
-                        <a class="a1">Artifilate</a>
-                        <a class="b">Sponsor</a>
+                        </div>
+                        <a href="#" class="a1">Artifilate</a>
+                        <a href="#" class="a1">Sponsor</a>
                     </div>
                 </div>
-                <div class="left col-md-5 ">
+                <div class="left col-md-4 ">
                     <div class="ftwitter"> <img src="images/twitter.jpg"></div>
                 </div>
             </div>
         </div>
     </footer>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script> -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
     <script>
@@ -462,16 +482,7 @@
                     $(this).parent().addClass("current");
                 }
             });
-            $(".language ").click(function() {
-                if ($(this).find(".todo").is(":visible")) //cái hiện tại là searchbox h5 tìm cha của nó là searchbox
-                //sau đó tìm con todo của searchbox đó, nếu đang hiển thị list
-                {
-                    $(this).removeClass("current"); //thì đóng list
-                } else {
-                    $(this).addClass("current");
-                }
-            });
-            // $(".current li").click(function() {
+            // $(".language ").click(function() {
             //     if ($(this).find(".todo").is(":visible")) //cái hiện tại là searchbox h5 tìm cha của nó là searchbox
             //     //sau đó tìm con todo của searchbox đó, nếu đang hiển thị list
             //     {
@@ -481,18 +492,33 @@
             //     }
             // });
 
-        });
 
+        });
+        $(".language").click(function() {
+            $(this).find(".list-lang").slideToggle();
+        });
+        $('.list-lang li').click(function() {
+            $(".return span").html($(this).html());
+        });
 
         /* When the user clicks on the button,
         toggle between hiding and showing the dropdown content */
+        // function myFunction() {
+        //     document.getElementById("myDropdown").classList.toggle("show");
+        // }
         function myFunction() {
+            if ($("#myDropdown").is(":visible")) {
+                $('.dropdown').removeClass("current");
+            } else {
+                $('.dropdown').addClass("current");
+            }
             document.getElementById("myDropdown").classList.toggle("show");
         }
-
-        function myFunctionSe() {
-            document.getElementById("myUL").classList.toggle("show");
-        }
+        $('#myDropdown a').click(function() {
+            $('.dropbtn').find("span").text($(this).text());
+            $("#myDropdown").removeClass("show");
+            $(".dropdown").removeClass("current");
+        });
 
         function filterFunction() {
             var input, filter, ul, li, a, i;
@@ -509,22 +535,78 @@
                 }
             }
         }
-
+    </script>
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <script src="js/jquery-ui.js"></script>
+    <script>
         function myFunctionSearch() {
-            var input, filter, ul, li, a, i, txtValue;
-            input = document.getElementById("txtKey");
+            var input, filter, ul, li, a, i, myInput, txtValue;
+            input = document.getElementById("myInput");
             filter = input.value.toUpperCase();
             ul = document.getElementById("myUL");
             // document.getElementById("myUL").classList.toggle("show");
-            a = div.getElementsByTagName("a");
+            li = ul.getElementsByTagName("li");
             for (i = 0; i < li.length; i++) {
-                a = a[i].getElementsByTagName("a")[0];
+                a = li[i].getElementsByClassName("textTitle")[0];
                 txtValue = a.textContent || a.innerText;
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    a[i].style.display = "";
+                    li[i].style.display = "";
                 } else {
-                    a[i].style.display = "none";
+                    li[i].style.display = "none";
                 }
+            }
+        }
+
+        function myFunctionSearchS() {
+            var input, filter, ul, li, a, i, myInput, txtValue;
+            input = document.getElementById("myInputS");
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("myUL");
+            // document.getElementById("myUL").classList.toggle("show");
+            li = ul.getElementsByTagName("li");
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByClassName("textTitle")[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+    <script>
+        // Price
+        $(function() {
+            $("#slider-range").slider({
+                range: true,
+                min: 0,
+                max: 300,
+                values: [17, 174],
+                slide: function(event, ui) {
+                    $("#amount").val(ui.values[0] + " $");
+                    $("#amountto").val(ui.values[1] + " $");
+                }
+            });
+            $("#amount").val($("#slider-range").slider("values", 0) + " $");
+            $("#amountto").val($("#slider-range").slider("values", 1) + " $");
+        });
+        // End Price
+    </script>
+    <!-- //scroll sẽ k bị mất thanh HOME -->
+    <script>
+        window.onscroll = function() {
+            myFunction()
+        };
+
+        var header = document.getElementById("myHeader");
+        var sticky = header.offsetTop;
+
+        function myFunction() {
+            if (window.pageYOffset > sticky) {
+                header.classList.add("sticky");
+            } else {
+                header.classList.remove("sticky");
             }
         }
     </script>

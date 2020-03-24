@@ -1,0 +1,117 @@
+@media screen and (max-width:1024px) {
+    body{
+        overflow-x:hidden;
+    }
+    .nav a {
+        padding: 10px 20px;
+        margin: 0px;
+    }
+    .nav li {
+        padding: 0px 10px;
+    }
+    .nav{
+        text-align:center;
+        float:left;
+        width:100%;
+    }
+    .pcolor {
+        padding: 0 0 0 20px;
+    }
+    .pcolor i {
+        padding: 0 0 0 20px;
+    }
+    .searchbox{
+        margin:0 0 20px 0;
+        position:relative;
+    }
+    .iicon li:last-child {
+        margin-left: 20px;
+    }
+    .iicon li {
+        margin: 0 10px 0 10px;
+    }
+    .searchbox h5 {
+        min-height: 54px;
+        margin-bottom: 0;
+        padding-left:15px;
+    }
+    .todo {
+        position: absolute;
+        z-index: 999999;
+        background: #191e24;
+        width: 100%;
+    }
+    .current #myDropdown{
+        background:#fff;
+        width:100%;
+    }
+    #myDropdown .show{
+        display:block!important;
+    }
+}
+@media screen and (max-width:768px) {
+    .iicon li {
+        margin: 0 10px 0 10px;
+        display: inline-block;
+        text-align: center;
+    }
+    .topfooter img {
+        float: none;
+    }
+    .topfooter{
+        text-align:center;
+    }
+    .iicon {
+        padding: 0;
+    }
+    .language {
+        margin-right: 0px;
+        width:50%;
+    }
+    .a1 {
+        float: left;
+        margin: 10px 20px 0 0;
+    }
+}
+@media screen and (max-width:480px) {
+    .language {
+        width: 50%;
+        margin: auto 10px;
+    }
+    .support {
+        float: none;
+        margin: auto;
+    }
+    .a1 {
+        float: left;
+        margin: 10px 0px 10px 0;
+        width: 50%;
+        text-align: center;
+    }
+    .ftwitter{
+        text-align:center;
+        width:100%;
+    }
+    .tUser{
+        display:none;
+    }
+    .pcolor1 i {
+        color: #01d456;
+        margin: 6px;
+        padding: 0 0px;
+        float: right;
+    }
+    .mHide {
+        display: block;
+        float: right;
+    }
+    .dropdown {
+        margin-bottom: 10px;
+    }
+    .search {
+        display: none;
+    }
+    article {
+        padding: 30px 0;
+    }
+}

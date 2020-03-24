@@ -3,12 +3,33 @@
         padding: 0;
     }
     
+    input:focus {
+        border-color: #35c1cf;
+        color: #fff;
+        outline: none;
+        box-shadow: none;
+    }
+    /* khi scroll sẽ giữ nguyên thanh HOME */
+    
+    .sticky {
+        position: fixed;
+        top: 0;
+        z-index: 99999999;
+    }
+    /*  */
+    
     header {
         background: #131921;
         float: left;
         width: 100%;
         min-height: 50px;
         text-align: center;
+    }
+    
+    nav {
+        float: left;
+        width: 100%;
+        background: #0f161e;
     }
     
     .logo {
@@ -76,7 +97,7 @@
         position: absolute;
         width: 30px;
         height: 30px;
-        top: 98px;
+        top: 14px;
         right: 20px;
         cursor: pointer;
     }
@@ -85,33 +106,10 @@
         color: #767a7b;
     }
     
-    #myUL {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-    }
-    
-    #myUL a {
-        border: 1px solid #ddd;
-        margin-top: -1px;
-        /* Prevent double borders */
-        background-color: #5c8d8f;
-        padding: 12px;
-        text-decoration: none;
-        font-size: 18px;
-        color: black;
-        display: block;
-    }
-    
-    #myUL li a:hover:not(.header) {
-        background-color: #eee;
-    }
-    
     .txtSearch {
-        margin: 80px 0;
-        width: 1000px;
+        margin: 0px 0;
         min-height: 55px;
-        max-width: 100%;
+        width: 100%;
         background: #363b41;
         border: none;
         color: #fff;
@@ -133,15 +131,15 @@
         color: #767a7b;
         padding: 10px 20px;
         margin: 0px;
-        border-bottom: solid 2px #131921;
     }
     
     .nav li {
-        padding: 10px 20px 0 20px;
+        padding: 0px 20px 0 20px;
     }
     
     .nav-link:focus,
-    .nav-link:hover {
+    .nav-link:hover,
+    .active .na-link {
         color: #fff;
         border-bottom: solid 2px #01e35c;
     }
@@ -157,13 +155,12 @@
     
     .pcolor {
         color: #aeb0b2;
-        margin-top: -25px;
-        margin-left: 170px;
         padding: 0 20px;
+        float: right;
+        margin: -25px 5px;
     }
     
     .pcolor i {
-        float: right;
         color: #aeb0b2;
         margin-top: 3px;
         padding: 0 20px;
@@ -192,7 +189,7 @@
     
     article {
         float: left;
-        padding: 40px 0;
+        padding: 70px 0;
         width: 100%;
         background: #131921;
         color: #ffffff;
@@ -208,11 +205,17 @@
     
     .topfooter img {
         float: left;
-        margin-right: 100px;
     }
     
     .topfooter {
         border-bottom: solid 1px #565857;
+        float: left;
+        padding-left: 0;
+    }
+    
+    .iicon li:last-child {
+        margin-right: 0;
+        margin-left: 80px;
     }
     
     .banner {
@@ -246,18 +249,26 @@
     
     #myInput {
         box-sizing: border-box;
-        background-image: url('searchicon.png');
-        background-position: 14px 12px;
-        background-repeat: no-repeat;
         font-size: 16px;
         padding: 14px 20px 12px 45px;
         border: none;
-        border-bottom: 1px solid #ddd;
     }
     /* The search field when it gets focus/clicked on */
     
     #myInput:focus {
-        outline: 3px solid #ddd;
+        outline: 1px solid #ddd;
+    }
+    
+    #myInputS {
+        box-sizing: border-box;
+        font-size: 16px;
+        padding: -10px 20px 12px 45px;
+        border: none;
+    }
+    /* The search field when it gets focus/clicked on */
+    
+    #myInputS:focus {
+        outline: 1px solid #ddd;
     }
     /* The container <div> - needed to position the dropdown content */
     
@@ -280,7 +291,7 @@
     
     .dropdown-content a {
         color: black;
-        padding: 12px 16px;
+        padding: 10px 16px;
         text-decoration: none;
         display: block;
     }
@@ -306,7 +317,7 @@
         float: left;
         width: 100%;
         margin: 10px 0 0 0;
-        padding: 0 0 0 30px;
+        padding: 0 0 0 0px;
     }
     
     .todo-list li {
@@ -317,10 +328,12 @@
         font-size: 12px;
         color: #8b8f97;
         background: url(../images/unck.jpg) left center no-repeat;
+        background-size: 15px 15px;
     }
     
     .todo-list .done {
         background: url(../images/check.jpg) left center no-repeat;
+        background-size: 15px 15px;
     }
     
     input[type=checkbox] {
@@ -528,12 +541,17 @@
         display: none;
     }
     
+    .dropbtn .fa {
+        float: right;
+    }
+    
     .todo {
         display: none;
     }
     
     .current .todo {
         display: block!important;
+        padding: 0 30px;
     }
     
     .current .fa-angle-down {
@@ -542,19 +560,14 @@
     
     .language {
         float: left;
-        width: 100%;
-        margin-top: -30px;
-        margin-left: 200px;
+        border-radius: 20px;
+        background: #2f343b;
+        padding: 5px;
         cursor: pointer;
     }
     
     .language a {
         width: 50%;
-        background: #2f343b;
-        border-radius: 20px;
-        text-align: right;
-        cursor: pointer;
-        padding: 15px 20px 15px 30px;
     }
     
     .language a1 {
@@ -596,7 +609,6 @@
         vertical-align: middle;
         border-style: none;
         width: 100%;
-        height: 350px;
     }
     
     .icon {
@@ -618,8 +630,12 @@
         cursor: pointer;
     }
     
+    .icon a i {
+        color: #fff;
+    }
+    
     .green {
-        background: green;
+        background: rgb(112, 233, 112);
     }
     
     .green:hover {
@@ -627,7 +643,7 @@
     }
     
     .blue {
-        background: blue;
+        background: rgb(122, 122, 231);
     }
     
     .blue:hover {
@@ -635,7 +651,7 @@
     }
     
     .gray {
-        background: gray;
+        background: rgb(70, 67, 67);
     }
     
     .gray:hover {
@@ -665,6 +681,7 @@
     .list-item h3 a {
         color: #fff;
         text-decoration: none;
+        font-size: 20px;
     }
     
     .list-item h3:hover {
@@ -672,18 +689,18 @@
     }
     
     .list-item {
-        border-bottom: solid 2px #019846;
         float: left;
+        background: url(../images/line-p.jpg) left bottom repeat-x;
+        /* max-width: 100%; */
         margin-bottom: 20px;
-        margin-left: 20px;
-    }
-    
-    .list-item:hover {
-        border: solid 1px #fff;
     }
     
     .list-item p span {
         float: right;
+    }
+    
+    .list-item:hover {
+        border: solid 1px #fff;
     }
     
     .cgreen {
@@ -692,12 +709,13 @@
     
     .price a {
         background: #3e8e41;
-        padding: 10px 30px;
+        padding: 5px 30px;
         float: right;
         text-align: center;
-        border-top-left-radius: 25px;
+        border-top-left-radius: 16px;
         color: #fff;
         text-decoration: none;
+        margin-bottom: 3px;
     }
     
     .price a:hover {
@@ -719,6 +737,13 @@
     
     .price sup {
         color: #c0c0c0;
+        margin-left: 4px;
+        margin-top: 3px;
+        font-size: 9px;
+    }
+    
+    .iicon {
+        float: right;
     }
     
     .iicon li {
@@ -743,18 +768,153 @@
         color: #aa497f;
     }
     
+    #myUL {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
     .support {
         border-radius: 20px;
-        padding: 6px 20px;
+        padding: 0px 30px 5px 30px;
         background: #01e35c;
         color: #fff;
-        width: 95px;
-        height: 40px;
-        margin: 10px 0 0 2px;
+        margin: 0px 50px 0 2px;
         text-align: center;
         cursor: pointer;
+        float: left;
+    }
+    
+    .f2 {
+        margin-top: 30px;
+        padding-left: 0;
     }
     
     .ftwitter {
         max-width: 100%;
+    }
+    
+    .SReturn .textPrice,
+    .SReturn label {
+        float: none;
+        width: initial;
+        display: inline-block;
+        text-align: center;
+        color: #848788;
+        max-width: 35%;
+        font-size: 12px;
+    }
+    
+    .SReturn label {
+        width: 15%;
+        height: 7px;
+        margin: 0px 2.5px 0 2.5%;
+        border-top: solid 1.5px #848788;
+    }
+    
+    .SReturn {
+        float: left;
+        width: 100%;
+        text-align: center;
+        margin: 20px 0;
+    }
+    
+    #slider-range {
+        margin-top: 20px !important;
+        float: left;
+        width: 100%;
+    }
+    
+    .textPrice {
+        background: #1a1a21;
+        padding: 2px 10px;
+        border-radius: 20px;
+        width: 35%;
+        border: none;
+    }
+    
+    #slider-range span {
+        background: url(../images/l.jpg) left center no-repeat;
+        outline: none;
+        box-shadow: none;
+    }
+    
+    .list-lang {
+        display: none;
+        width: 105%;
+        float: left;
+        /* padding: 0; */
+        padding: 10px 0 0 0;
+        border-top: dotted 1px #5e5e5e;
+        margin: 5px -5px -10px -5px;
+        background: #009e49;
+    }
+    
+    .search {
+        max-width: 100%;
+    }
+    
+    .return img {
+        width: 30px;
+        margin-right: 10px;
+        float: left;
+        border-radius: 20px;
+    }
+    
+    .return {
+        line-height: 17px;
+    }
+    
+    .list-lang img {
+        width: 20px;
+        margin-left: 10px;
+        float: left;
+    }
+    
+    #slider-range span:last-child {
+        background: url(../images/r.jpg) left center no-repeat;
+    }
+    
+    .list-lang li {
+        list-style: none;
+        font-size: 11px;
+        line-height: 11px;
+        width: 100%;
+        float: left;
+        margin-bottom: 10px;
+    }
+    
+    .list-lang li img {
+        margin-right: 10px;
+    }
+    
+    .language i {
+        float: right;
+        background: #fff;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        color: #9ea0a2;
+        text-align: center;
+        line-height: 20px;
+        margin-left: 10px;
+    }
+    
+    .language {
+        margin-right: 50px;
+    }
+    
+    .a1 {
+        float: left;
+        margin-right: 50px;
+        color: #727476 !important;
+        text-decoration: none;
+    }
+    
+    .a1:hover {
+        color: #fff !important;
+    }
+    
+    .ftwitter {
+        float: right;
     }
